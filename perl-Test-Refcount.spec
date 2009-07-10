@@ -1,5 +1,5 @@
 %define upstream_name    Test-Refcount
-%define upstream_version 0.04
+%define upstream_version 0.05
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
