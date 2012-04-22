@@ -17,6 +17,7 @@ BuildRequires: perl(Test::Builder)
 BuildRequires: perl(Test::Builder::Tester)
 BuildRequires: perl(Test::More)
 BuildRequires: perl(Module::Build::Compat)
+BuildRequires: perl-devel
 BuildArch: noarch
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}
 
