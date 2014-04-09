@@ -1,11 +1,12 @@
 %define upstream_name    Test-Refcount
-%define upstream_version 0.07
+%define upstream_version 0.08
 
 Name:       perl-%{upstream_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Release:    1
 
 Summary:    Assert reference counts on objects
+
 License:    GPL+ or Artistic
 Group:      Development/Perl
 Url:        http://search.cpan.org/dist/%{upstream_name}
@@ -19,7 +20,6 @@ BuildRequires: perl(Test::More)
 BuildRequires: perl(Module::Build::Compat)
 BuildRequires: perl-devel
 BuildArch: noarch
-BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 The Perl garbage collector uses simple reference counting during the normal
@@ -48,14 +48,11 @@ for more information.
 make test
 
 %install
-rm -rf %buildroot
 %makeinstall_std
 
 %clean
-rm -rf %buildroot
 
 %files
-%defattr(-,root,root)
 
 %{_mandir}/man3/*
 %perl_vendorlib/*
@@ -63,37 +60,4 @@ rm -rf %buildroot
 
 
 
-%changelog
-* Sun Apr 22 2012 Götz Waschk <waschk@mandriva.org> 0.70.0-2mdv2012.0
-+ Revision: 792690
-- update build deps
-- yearly rebuild
-
-* Wed Apr 20 2011 Sandro Cazzaniga <kharec@mandriva.org> 0.70.0-1
-+ Revision: 656227
-- update to 0.07
-
-* Sun Apr 17 2011 Funda Wang <fwang@mandriva.org> 0.60.0-2
-+ Revision: 654317
-- rebuild for updated spec-helper
-
-* Fri Nov 27 2009 Jérôme Quelin <jquelin@mandriva.org> 0.60.0-1mdv2011.0
-+ Revision: 470460
-- update to 0.06
-
-* Fri Nov 27 2009 Götz Waschk <waschk@mandriva.org> 0.60.0-1mdv2010.1
-+ Revision: 470452
-- update to new version 0.06
-
-* Fri Jul 10 2009 Jérôme Quelin <jquelin@mandriva.org> 0.50.0-1mdv2010.0
-+ Revision: 394270
-- update to 0.05
-
-* Mon Jun 29 2009 Götz Waschk <waschk@mandriva.org> 0.40.0-1mdv2010.0
-+ Revision: 390501
-- import perl-Test-Refcount
-
-
-* Mon Jun 29 2009 cpan2dist 0.04-1mdv
-- initial mdv release, generated with cpan2dist
 
